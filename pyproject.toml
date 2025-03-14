@@ -1,0 +1,31 @@
+[project]
+name = "script-over-tcp"
+version = "0.1.0"
+description = "aircraft data over tcp"
+authors = [
+    {name = "David Davis",email = "davidjamesdavis.djd@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ruff (>=0.10.0,<0.11.0)",
+    "mypy (>=1.15.0,<2.0.0)",
+    "black (>=25.1.0,<26.0.0)",
+    "requests (>=2.32.3,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+poethepoet = "^0.33.0"
+
+[tool.poe.tasks]
+lint = "ruff check ."
+lintfix = "ruff check . --fix"
+format = "black ."
+checkformat = "black --check ."
+check = ["lint", "checkformat"]
+
