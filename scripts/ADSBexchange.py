@@ -10,7 +10,7 @@ load_dotenv()
 def main():
     adsb_key = os.environ.get("ADSB_KEY")
     target_ip_address = os.environ.get("TARGET_IP")
-    target_port = os.environ.get("TARGET_PORT")
+    target_port = int(os.environ.get("TARGET_PORT"))
     target_lat = os.environ.get("TARGET_LAT")
     target_lon = os.environ.get("TARGET_LON")
     target_miles = os.environ.get("TARGET_MILES")
@@ -30,7 +30,7 @@ def main():
 
     while True:
         try:
-            response = requests.get(url, headers)
+            response = requests.get(url, headers=headers)
             response.raise_for_status()
             data = response.text
         except Exception as e:
@@ -40,7 +40,7 @@ def main():
             try:
                 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     s.connect((target_ip_address, target_port))
-                    s.sendall(data.encode("utf-8"))
+                    s.sendall((data + "\n").encode("utf-8"))
             except Exception as e:
                 print(f"Error sending data: {e}")
 
