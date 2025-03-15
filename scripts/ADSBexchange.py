@@ -8,6 +8,18 @@ load_dotenv()
 
 
 def main():
+    """
+    Fetch data from the ADSB API and send it over a TCP connection.
+
+    Uses the following environment variables:
+      ADSB_KEY: API key for authentication.
+      TARGET_IP: IP address of the target server.
+      TARGET_PORT: Port number of the target server.
+      TARGET_LAT: Latitude for the API request.
+      TARGET_LON: Longitude for the API request.
+      TARGET_MILES: Distance (in nautical miles) for the API request.
+    """
+
     adsb_key = os.environ.get("ADSB_KEY")
     target_ip_address = os.environ.get("TARGET_IP")
     target_port = int(os.environ.get("TARGET_PORT"))
