@@ -30,5 +30,5 @@ ADSB Exchange aircraft flights over tcp: `poetry run python scripts/ADSBexchange
 ```sh
 docker compose build
 # Run an individual script
-docker run adsbexchange poetry run python scripts/ADSBexchange.py
+docker run script-over-tcp poetry run python scripts/ADSBexchange.py
 ```

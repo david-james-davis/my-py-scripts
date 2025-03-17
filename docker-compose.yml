@@ -2,8 +2,8 @@ version: '3.8'
 
 # Define the services
 services:
-  adsbexchange:
-    image: adsbexchange
+  script-over-tcp:
+    image: script-over-tcp
     build:
       context: .
       dockerfile: Dockerfile
