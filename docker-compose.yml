@@ -1,0 +1,14 @@
+version: '3.8'
+
+# Define the services
+services:
+  adsbexchange:
+    image: adsbexchange
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: ["poetry", "run", "python"]

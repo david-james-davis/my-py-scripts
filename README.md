@@ -21,6 +21,14 @@ Install dependencies:
 (See poe tool setup in pyproject.toml)
 
 
-## Running scripts
+## Running scripts locally
 
 ADSB Exchange aircraft flights over tcp: `poetry run python scripts/ADSBexchange.py`
+
+## Running script using Docker
+
+```sh
+docker compose build
+# Run an individual script
+docker run adsbexchange poetry run python scripts/ADSBexchange.py
+```
